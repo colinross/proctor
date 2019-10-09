@@ -1,0 +1,61 @@
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - '**/*.erb'
+    - 'bin/*'
+    - 'db/schema.rb'
+    - 'lib/templates/rspec/**/*'
+    - 'Vagrantfile'
+
+# Lint
+# -------------------------------------------------
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+Lint/AmbiguousRegexpLiteral:
+  Enabled: false 
+
+# Metrics
+# -------------------------------------------------
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/routes.rb'
+    - '**/*spec.rb'
+
+
+Metrics/LineLength:
+  Enabled: false
+
+
+# Style
+# -------------------------------------------------
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: ()
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+
+Style/Documentation:
+  Enabled: false
+
+
+Layout/EmptyLinesAroundAccessModifier:
+  Enabled: false
+
+
+Style/EmptyMethod:
+  Enabled: false
+
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+
+Layout/IndentationConsistency:
+  EnforcedStyle: rails
