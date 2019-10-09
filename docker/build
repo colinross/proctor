@@ -1,0 +1,24 @@
+#!/bin/bash
+
+set -e
+
+IMAGE=$1
+DOCKERFILE_PATH=$(dirname "$0")/$IMAGE
+
+if [ -n "$2" ]
+then
+  TAG=$2
+elif [ -n "$RUBY_VERSION" ]
+then
+  TAG=$RUBY_VERSION
+else
+  TAG=latest
+fi
+
+envsubst '$RUBY_VERSION' < $DOCKERFILE_PATH/Dockerfile > $DOCKERFILE_PATH/Dockerfile.final
+
+cd $DOCKERFILE_PATH
+docker build --no-cache -t $IMAGE:$TAG -f Dockerfile.final .
+#docker push $IMAGE:$TAG
+rm Dockerfile.final
+cd -
